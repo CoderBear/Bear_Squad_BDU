@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.games.sbs.bearsquadbdu.Game"
+    android:stretchColumns="0,2"
+    android:background="@color/background">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/timer"
+            android:id="@+id/TVtimer"
+            android:layout_column="0"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="35sp" />
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/IBsmiley"
+            android:layout_column="1"
+            android:padding="5dp"
+            android:scaleType="center"
+            android:contentDescription="@string/smiley"
+            android:foregroundGravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/mine_count"
+            android:id="@+id/TVmineCount"
+            android:layout_column="2"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="35sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/MineField"
+            android:layout_span="3"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:stretchColumns="*"></TableLayout>
+    </TableRow>
+</TableLayout>

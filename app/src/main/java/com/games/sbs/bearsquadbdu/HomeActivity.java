@@ -1,18 +1,22 @@
 package com.games.sbs.bearsquadbdu;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements OnClickListener {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -89,10 +93,24 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
+        View newGameButton = findViewById(R.id.button_new_game);
+        newGameButton.setOnClickListener(this);
+
+        View continueGameButton = findViewById(R.id.button_continue_game);
+        continueGameButton.setOnClickListener(this);
+
+        View highScoreButton = findViewById(R.id.button_high_score);
+        highScoreButton.setOnClickListener(this);
+
+        View rulesButton = findViewById(R.id.button_rules);
+        rulesButton.setOnClickListener(this);
+
+        View exitButton = findViewById(R.id.button_exit);
+        exitButton.setOnClickListener(this);
+
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
-
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -159,5 +177,44 @@ public class HomeActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_new_game:
+                openNewGameDialog();
+                break;
+            case R.id.button_continue_game:
+                break;
+            case R.id.button_high_score:
+                break;
+            case R.id.button_rules:
+//                startActivity(new Intent(this,Rules.class));
+                break;
+            case R.id.button_exit:
+                finish();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void openNewGameDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.difficulty_title)
+                .setItems(R.array.difficulty,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startNewGame(which);
+                            }
+                        }).show();
+    }
+
+    private void startNewGame(int i) {
+        Intent intent = new Intent(this, Game.class);
+        intent.putExtra(Game.KEY_DIFFICULTY, i);
+        startActivity(intent);
     }
 }

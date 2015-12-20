@@ -3,4 +3,25 @@
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!--Screen Titles-->
+    <string name="rules_title">Rules</string>
+    <string name="difficulty_title">Difficulty</string>
+
+    <!--Difficulty Levels-->
+    <string name="easy_label">Cub</string>
+    <string name="medium_label">Bear</string>
+    <string name="hard_label">Grizzly</string>
+
+    <!--Main Menu Button Names-->
+    <string name="new_game">New Game</string>
+    <string name="continue_game">Continue Game</string>
+    <string name="high_score">High Score</string>
+    <string name="rules">Rules</string>
+    <string name="exit">Exit</string>
+    <string name="action_settings">Settings</string>
+    <string name="rules_content">abc</string>
+    <string name="timer">0</string>
+    <string name="smiley">:D</string>
+    <string name="mine_count">0</string>
 </resources>
